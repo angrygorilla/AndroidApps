@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello User of this Android Application</string>
+    <string name="app_name">Assignment1</string>
+    <string name="button2">Quit</string>
+    <string name="button1">TextActivity</string>
+    <string-array name="string_list">
+    	<item>Android!!!!</item>
+    	<item>KHaaAHHHHHHNNNNN!!</item>
+    	<item>GET TO THE CHOPPPA</item>
+    </string-array>
+</resources>
