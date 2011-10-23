@@ -1,0 +1,86 @@
+activity
+
+a single thing a user does "UI"
+
+roughly something a user "does" (notional)
+also is a class, main building blocks of the app
+
+extends android.app.Activity
+
+must override onCreate method of the Activity class
+takes a Saved state information (Bundle)
+you can override several methods 
+
+onPause
+onStop
+onDestroy
+onRestart
+onCreate
+onResume
+
+
+1 create activity
+2 show the UI so you can interact with it.
+
+Activities have states
+
+1 running (most important, actually doing something)
+2 stopped (no longer in focus, can't interact with it, The app could be doing background work)
+3 paused (activity is not in the foreground)
+4 destroyed (memory is freed) (save state, heap has filled up)
+
+these states are applied to activities, not apps
+
+
+Activity stack
+* linear list of activities user has visited
+* back key, moves ptr to previousl activity on the stack
+
+onPause vs onResume
+
+during pause, turn off subscription to GPS info
+during resume, resubmit request for GPS info
+
+Clicking the icon will call / execute the onCreate() method you defined
+for your Activity (App)
+
+Manifest must specify what the first activity is first
+this is declared in the manifest, basically your main.
+
+each activity has a associated layout, you can multiple of them, this is what gives us the UI you see when running your app, this is why you "showView("resour")"
+
+Tasks (Concept)
+
+what the user experiences as an "application", a experiential whole
+A group of related activities, arranged in a stack
+There is no task class, its mearly a "Concept" or way to think of grouping activities
+All activities run in a single process in the OS, this is what the virtual machine does for you.
+can have multiple activies (dont have to be all in your app), can use google maps api, or telephony, can include numerous activities.
+
+
+
+
+Bundle
+Bundle object is a key-value store, an activity's state
+color = green
+position = 1,2
+last_column = 5
+
+Basically for preference data.
+
+
+Intents
+
+* Play Music
+* Create another activity
+
+
+
+Service 
+
+does heavy lifting (background)
+* downloading
+* hitting server for data
+* crunch crunch
+
+
