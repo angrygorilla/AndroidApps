@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, HomeActivity!</string>
+    <string name="app_name">willi7_hw2</string>
+    <string name="add_string_button">Add Text</string>
+    <string-array name="string_list">
+        <item>Why Did the chicken cross the road? Come on...</item>
+        <item>What\'s Green and Red and spinning at 5k RPMS?</item>
+        <item>I forgot the punch line</item>
+        <item>A Pope, a Priest, and a Rabi walk into a Bar...</item>
+        <item>What is 5 times 12? 60!</item>
+        <item>So a bit ran into a byte walking down the street...</item>
+        <item>Eclipse is so expensive...</item>
+        <item>I wish I was an iphone...</item>
+        <item>Simpsons did it first...</item>
+        <item>So a ListView walk up to a Activity and says who\'s your parent?</item>               
+    </string-array>
+    <string name="rating_label">Please leave a review for: </string>
+</resources>
