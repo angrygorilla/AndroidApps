@@ -57,6 +57,9 @@ public class HomeActivity extends ListActivity {
 
 		Log.v("mytag", "content view was just set");
 
+		// populate the list
+		this.GetListData();
+		
 		// setup list adapter
 		this.m_list_adapter = new HomeActivity.RowListAdapter(
 				this.m_array_list, this);
@@ -67,9 +70,9 @@ public class HomeActivity extends ListActivity {
 				.findViewById(R.id.add_string_button);
 		this.m_add_string_button
 				.setOnClickListener(new HomeActivity.AddTextListener());
-
-		// populate the list
-		this.GetListData();
+		
+		Log.v("mytag", "nofitying the data set changed!");
+		this.m_list_adapter.notifyDataSetChanged();
 	}
 
 	// handler for when user clicked an item in the list
@@ -116,6 +119,8 @@ public class HomeActivity extends ListActivity {
 			if (new_string.length() > 0) {
 				Toast.makeText(getBaseContext(), "You added: " + new_string,
 						Toast.LENGTH_SHORT).show();
+				
+				// add the new string to the list
 				home.AddTextToList(new_string);
 
 				// notify the ListView that the list has been changed
@@ -162,6 +167,7 @@ public class HomeActivity extends ListActivity {
 			for (String s : string_list) {
 				this.m_array_list.add(new RowClass(s));
 			}
+			
 		} else {
 			// in file, so read them back in
 			FileInputStream input = null;
@@ -202,8 +208,7 @@ public class HomeActivity extends ListActivity {
 			}
 		}
 
-		Log.v("mytag", "nofitying the data set changed!");
-		this.m_list_adapter.notifyDataSetChanged();
+	
 	}
 
 	/**
@@ -241,12 +246,7 @@ public class HomeActivity extends ListActivity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		/*
-		 * // write out objects for(int i = 0; i < this.m_array_list.size();
-		 * i++) { try { obj_output.writeObject(this.m_array_list.get(i)); }
-		 * catch (IOException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); } }
-		 */
+
 		// close stream
 		try {
 			obj_output.close();
