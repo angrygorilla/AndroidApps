@@ -2,6 +2,73 @@
 <resources>
 
     <string name="hello">Hello World, HomeActivity!</string>
-    <string name="app_name">Assignment3</string>
-
+    <string name="app_name">Assignment3 - Gorilla\'s in the List</string>
+    <string name="age_label">Age:</string>
+    <string name="name_label">Name:</string>
+    <string name="desc_label">Description:</string>
+    <string name="weight_label">Weight(lbs):</string>
+    <!--  
+    	Static data to populate the database with
+    	there are five columns:
+    	name (varchar)
+    	age (int) 
+    	weight (float)
+    	image (varchar)
+    	description (varchar)
+    -->
+    <string-array name="g_name">
+        <item>Alfred</item>
+        <item>Frank</item>
+        <item>Steve</item>
+        <item>Sigfried</item>
+        <item>Martin</item>
+        <item>Bill</item>
+        <item>Buch</item>
+        <item>Tiny</item>
+        <item>Norman</item>
+    </string-array>
+    <integer-array name="g_age">
+        <item>13</item>
+        <item>8</item>
+        <item>22</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>8</item>
+    </integer-array>
+    <integer-array name="g_weight">
+        <item>600</item>
+        <item>400</item>
+        <item>599</item>
+        <item>585</item>
+        <item>600</item>
+        <item>409</item>
+        <item>587</item>
+        <item>880</item>
+        <item>400</item>
+    </integer-array>
+    <string-array name="g_image">
+        <item>image1.jpg</item>
+        <item>image2.jpg</item>
+        <item>image3.jpg</item>
+        <item>image4.jpg</item>
+        <item>image5.jpg</item>
+        <item>image6.jpg</item>
+        <item>image7.jpg</item>
+        <item>image8.jpg</item>
+        <item>image9.jpg</item>
+    </string-array>
+    <string-array name="g_description">
+        <item>Alfred enjoys eatting bananas and talking long walks in the park. Sometimes he likes to climb trees.</item>
+        <item>Frank likes hanging out with his friends in his free time. He also paints when he has down time, usually pictures of bananas.</item>
+        <item>Steve is the lady killer. Always on the lookout for a new friend to hang around with.</item>
+        <item>Sigfried like to read books and write poetry. He can often be seen reciting Shakespear in the park on a nice summer day.</item>
+        <item>Martin is a large gorilla who you dont want to mess with. In his free time he likes to practice GMMA which is gorilla mixed martial arts.</item>
+        <item>Bill is smart and friendly gorilla. He enjoys long walks on the beach and eating bananas.</item>
+        <item>Buch is an angry gorilla. He often will get into fights with his friends when they discuss the best time to eat a banana.</item>
+        <item>Tiny has a ironic name. Not only is not tiny but is the largest of the bunch. Dont mess with Tiny.</item>
+        <item>Norman is the thinker of the bunch. When hes not swinging from the tree and can be found doing physics.</item>
+    </string-array>
 </resources>
