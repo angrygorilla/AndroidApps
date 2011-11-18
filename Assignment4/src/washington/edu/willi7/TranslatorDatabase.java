@@ -41,10 +41,13 @@ public class TranslatorDatabase extends SQLiteOpenHelper {
 				+ TranslatorColumns.LANGUAGE_COLUMN + " INTEGER,"
 				+ TranslatorColumns.MESSAGE_COLUMN + " TEXT"
 				+ ");";
+		
+		// create the tables
 		db.execSQL(create);
 		
 		Log.d("assignment4", "onCreate - adding some columns");
 		
+		// create the insert strings
 		String insert = "INSERT INTO " + mDatabaseName + " ("
 				+ TranslatorColumns.CATEGORY_COLUMN + ", "
 				+ TranslatorColumns.LANGUAGE_COLUMN + ", "
@@ -55,6 +58,11 @@ public class TranslatorDatabase extends SQLiteOpenHelper {
 				+ TranslatorColumns.LANGUAGE_COLUMN + ", "
 				+ TranslatorColumns.MESSAGE_COLUMN + ") VALUES ("
 				+ Integer.toString(1) + ", " + Integer.toString(2) + ", 'hola');";
+		
+		Log.d("assignment4", "onCreate - " + insert);
+		Log.d("assignment4", "onCreate - " + insert2);
+		
+		// insert the values
 		db.execSQL(insert);
 		db.execSQL(insert2);
 		
@@ -62,8 +70,10 @@ public class TranslatorDatabase extends SQLiteOpenHelper {
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		// TODO Auto-generated method stub
-
+			Log.d("assignment4", "Upgrading database from version " + oldVersion + " to "
+					+ newVersion + ", which will destroy all old data!!");
+			db.execSQL("DROP TABLE IF EXISTS " + mDatabaseName);
+			onCreate(db);
 	}
 
 
@@ -75,6 +85,9 @@ public class TranslatorDatabase extends SQLiteOpenHelper {
 
 	public Cursor queryMessages(String language) {
 		Cursor c = null;
+		SQLiteDatabase db = this.getReadableDatabase();
+				
+				
 		
 		return c;
 	}
