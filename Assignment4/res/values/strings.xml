@@ -3,5 +3,56 @@
 
     <string name="hello">Hello World, HomeActivity!</string>
     <string name="app_name">Assignment4</string>
+    <string-array name="category_list">
+        <item >City</item>
+        <item >Hospital</item>
+        <item >Restaurant</item>
+    </string-array>
+    <string-array name="language_list">
+        <item >Spanish</item>
+        <item >English</item>
+    </string-array>
+    <string-array name="hospital_message1_list">
+        <item >Can you call me a doctor?</item>
+        <item >I need to see a doctor</item>
+        <item >I\'m sick</item>
+        <item >My head hurts</item>
+        <item >I have an allergy to penicillin</item>
+    </string-array>
+    <string-array name="hospital_message2_list">
+        <item >¿Puede llamarme un doctor?</item>
+        <item >Necesito ver un doctor.</item>
+        <item >Estoy enfermo/a.</item>
+        <item >Me duele la cabeza.</item>
+        <item >Tengo alergia a la penicilina.</item>
+    </string-array>
+    <string-array name="restaurant_message1_list">
+        <item >Can I see the menu?</item>
+        <item >I need a table for two, please.</item>
+        <item >What\'s the daily special?</item>
+        <item >What do you recommend?</item>
+        <item >Enjoy your meal</item>
+    </string-array>
+    <string-array name="restaurant_message2_list">
+        <item >¿Puedo ver el menú?</item>
+        <item >Necesito una mesa para dos, por favor.</item>
+        <item >¿Cuál es el especial del día?</item>
+        <item >¿Qué me recomienda?</item>
+        <item >Buen provecho</item>
+    </string-array>
+    <string-array name="city_message1_list">
+        <item >Where are the public bathrooms?</item>
+        <item >I\'m lost.</item>
+        <item >I want to go shopping.</item>
+        <item >How much does it cost?</item>
+        <item >Is there something less expensive?</item>
+    </string-array>
+    <string-array name="city_message2_list">
+        <item >¿Dónde están los baños públicos?</item>
+        <item >Estoy perdido/a.</item>
+        <item >Quiero hacer compras.</item>
+        <item >¿Cuánto cuesta?</item>
+        <item >¿Hay algo más barato?</item>
+    </string-array>
 
 </resources>
