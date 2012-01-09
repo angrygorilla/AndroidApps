@@ -3,5 +3,7 @@
 
     <string name="hello">Hello World, Homework007Activity!</string>
     <string name="app_name">Homework 007</string>
+    <string name="button_text">Go</string>
+    <string name="default_url">http://www.cnn.com</string>
 
 </resources>
