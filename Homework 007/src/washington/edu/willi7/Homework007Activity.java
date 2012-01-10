@@ -85,24 +85,31 @@ public class Homework007Activity extends Activity {
     {
     	menu.add(Menu.NONE, 1, Menu.NONE, "Show Source");
     	menu.add(Menu.NONE, 2, Menu.NONE, "Show Cookies");
-    	menu.add(Menu.NONE, 3, Menu.NONE, "Reload");
+//    	menu.add(Menu.NONE, 3, Menu.NONE, "Reload");
     	return true;
     } 
 
 	public boolean onOptionsItemSelected(MenuItem item) {
+		
+		Intent intent = null;
 		switch (item.getItemId()) {
 		// Show the source, load ShowSourceActivity passing current URL
 		case 1:
-			Toast.makeText(this, "Show Source Pressed!", Toast.LENGTH_SHORT).show();
+			intent = new Intent(getApplicationContext(), ViewSourceActivity.class);
+			intent.putExtra(ViewerConstants.INTENT_URL_STRING, mWebview.getUrl());
+			startActivity(intent);
 			break;
 		// Show the Cookies, load the ShowCookiesActivity passing the current URL 
 		case 2:
-			Toast.makeText(this, "Show Cookies Pressed!", Toast.LENGTH_SHORT).show();
+			intent = new Intent(getApplicationContext(), ViewCookiesActivity.class);
+			intent.putExtra(ViewerConstants.INTENT_URL_STRING, mWebview.getUrl());
+			startActivity(intent);
 			break;
-		// Reload the WebView
-		case 3:
-			Toast.makeText(this, "Reload Pressed!", Toast.LENGTH_SHORT).show();
-			loadUrl();
+			/*
+		 * // Reload the WebView case 3: Toast.makeText(this, "Reload Pressed!",
+		 * Toast.LENGTH_SHORT).show(); loadUrl(); break;
+		 */
+		default:
 			break;
 		}
 		super.onOptionsItemSelected(item);
