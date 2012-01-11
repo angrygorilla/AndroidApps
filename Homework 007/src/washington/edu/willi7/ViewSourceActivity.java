@@ -32,7 +32,7 @@ public class ViewSourceActivity extends Activity {
 		Intent intent = getIntent();
 		mUrl = intent.getExtras().getString(ViewerConstants.INTENT_URL_STRING);
 		
-		mSourceTextView = (TextView)findViewById(R.id.textView1);
+		mSourceTextView = (TextView)findViewById(R.id.textViewSource);
 		try {
 			mSourceTextView.setText(getSourceFromUrl(mUrl));
 		} catch (IOException e) {
@@ -46,7 +46,8 @@ public class ViewSourceActivity extends Activity {
 	 * get Source from the URL provided 
 	 * 
 	 * creates a HttpClient to use as a means to access the source of the URL passed in.
-	 * Response is read via a InputStreamReader into a StringBuidler line by line
+	 * Response is read via a InputStreamReader into a StringBuidler line by line.
+	 * This seems more complicated than it should be.
 	 * 
 	 * @param url string to parse
 	 * @return String of the URL source in text
