@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
@@ -31,6 +32,11 @@ public class Homework007Activity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		/* request progress on the window so we can see if web pages are loading */
+		getWindow().requestFeature(Window.FEATURE_PROGRESS);
+		
+		/* inflate the view */
 		setContentView(R.layout.main);
 
 		/* for the WebChromeClient */
@@ -54,7 +60,7 @@ public class Homework007Activity extends Activity {
 		/* adjust settings */
 		mWebview.getSettings().setJavaScriptEnabled(true);
 		mWebview.getSettings().setBuiltInZoomControls(true);
-
+		
 		/* Creating a new webclient to keep url clicks in my webview */
 		mWebview.setWebChromeClient(new WebChromeClient() {
 			public void onProgressChanged(WebView view, int newProgress) {
