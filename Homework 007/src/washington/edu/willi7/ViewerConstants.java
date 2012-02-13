@@ -16,6 +16,6 @@ public class ViewerConstants {
 	
 	public final static String INTENT_URL_STRING = "load_url";
 	public final static String DEFAULT_URL_TYPE = "http";
-	public final static String DEFAULT_URL_STRING = "http://www.cnn.com";
+	public final static String DEFAULT_URL_STRING = "http://www.diablo3.com";
 
 }

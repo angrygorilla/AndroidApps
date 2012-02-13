@@ -12,10 +12,16 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 
+/**
+ * Activity to view the source of the URL 
+ * in the text control from the main activity.
+ *  
+ * @author martin
+ */
 public class ViewSourceActivity extends Activity {
 	
 	private TextView mSourceTextView;
@@ -29,21 +35,18 @@ public class ViewSourceActivity extends Activity {
 		/* load the layout */
 		setContentView(R.layout.view_source);
 		
+		/* get the url from the extras */
 		Intent intent = getIntent();
 		mUrl = intent.getExtras().getString(ViewerConstants.INTENT_URL_STRING);
-		
 		mSourceTextView = (TextView)findViewById(R.id.textViewSource);
-		try {
-			mSourceTextView.setText(getSourceFromUrl(mUrl));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			mSourceTextView.setText("Error Occured getting source from URL:" + mUrl);
-		}
+		
+		/* create task and pass url */
+		GetSourceTask task = new GetSourceTask();
+		task.execute(new String [] { mUrl });
 	}
 	
 	/**
-	 * get Source from the URL provided 
+	 * Async task that gets the source for a given URL
 	 * 
 	 * creates a HttpClient to use as a means to access the source of the URL passed in.
 	 * Response is read via a InputStreamReader into a StringBuidler line by line.
@@ -55,29 +58,68 @@ public class ViewSourceActivity extends Activity {
 	 * 
 	 * @example http://stackoverflow.com/questions/2423498/how-to-get-the-html-source-of-a-page-from-a-html-link-in-android
 	 */
-	private String getSourceFromUrl(String url) throws IOException {
-		
-		/* Create the client, request, and response */
-		HttpClient client = new DefaultHttpClient();
-		HttpGet request = new HttpGet(url);
-		
-		/* execute the request,  */
-		HttpResponse response = client.execute(request);
+	private class GetSourceTask extends AsyncTask<String, Void, String> {
 
-		String html = "";
-		
-		/* Stream the response if successful */
-		InputStream in = response.getEntity().getContent();
-		BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-		StringBuilder str = new StringBuilder();
-		String line = null;
-		while((line = reader.readLine()) != null)
-		{
-		    str.append(line);
+		/**
+		 * function to be performed in the background.
+		 * Does the HTTP GET operation.
+		 * 
+		 * @param params string array of arguments pass to the function, only the URL
+		 * @return string representation of the HTTP GET
+		 */
+		@Override
+		protected String doInBackground(String... params) {
+
+			String[] url = params;
+			String html_source = "";
+			
+			/* Create the client, request, and response */
+			HttpClient client = new DefaultHttpClient();
+			/* only one string being passed in, take first */
+			HttpGet request = new HttpGet(url[0]);
+
+			/* execute the request, */
+			try {
+				HttpResponse response = client.execute(request);
+
+				/* Stream the response if successful */
+				InputStream in = response.getEntity().getContent();
+				BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+				
+				StringBuilder str = new StringBuilder();
+				String line = null;
+			
+				/* loop on reader until done */
+				while ((line = reader.readLine()) != null) {
+					str.append(line);
+				}
+				
+				/* close input stream */
+				in.close();
+				
+				/* set the return string */
+				html_source = str.toString();
+				
+			} catch (IOException e) {
+				html_source = "Error!";
+				e.printStackTrace();
+			}
+			
+			/* return the source string */
+			return html_source;
 		}
-		in.close();
 		
-		html = str.toString();	
-		return html;
+		/**
+		 * After the execute finishes up the text control
+		 * 
+		 * @param result source of the current url in a string
+		 * @return void 
+		 */
+		@Override
+		protected void onPostExecute( String result )
+		{
+			/* update source text control with HTTP result */
+			mSourceTextView.setText(result);
+		}
 	}
 }

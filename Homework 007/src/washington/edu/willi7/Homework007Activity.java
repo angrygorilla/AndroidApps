@@ -1,18 +1,15 @@
 package washington.edu.willi7;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebChromeClient;
@@ -20,8 +17,19 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
+/**
+ * Main activity that gets launched when the application is
+ * launched. This is composed of a text control and a 
+ * button. When the button is pressed the contents
+ * of the text control are read and a HTTP request is
+ * sent to populate the WebView.
+ * 
+ * Paths to view the source and cookies for the current web page
+ * are available view the menu button.
+ * 
+ * @author martin
+ */
 public class Homework007Activity extends Activity {
 
 	private Button mButton;
@@ -76,6 +84,10 @@ public class Homework007Activity extends Activity {
 
 		/* load a url */
 		loadUrl();
+		
+		/* hide the damn soft keyboard */
+		InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+		imm.hideSoftInputFromWindow(mTextView.getWindowToken(), 0);
 	}
 
 	@Override
@@ -145,4 +157,9 @@ public class Homework007Activity extends Activity {
 			return true;
 		}
 	}
+
+
+	
+	
+
 }
