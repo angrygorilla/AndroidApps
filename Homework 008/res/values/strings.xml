@@ -3,5 +3,12 @@
 
     <string name="hello">Hello World, Homework008Activity!</string>
     <string name="app_name">Homework 008</string>
+    <string name="curConditionLabel"><b>Currently:</b></string>
+    <string name="tempLabel"><b>Temperature:</b></string>
+    <string name="forcastLabel"><b>Forecast:</b></string>
+    <string name="dayLabel">Day</string>
+    <string name="highLabel"><b>High:</b></string>
+    <string name="lowLabel"><b>Low:</b></string>
+    
 
 </resources>
