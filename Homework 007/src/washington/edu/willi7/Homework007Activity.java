@@ -157,9 +157,4 @@ public class Homework007Activity extends Activity {
 			return true;
 		}
 	}
-
-
-	
-	
-
 }
