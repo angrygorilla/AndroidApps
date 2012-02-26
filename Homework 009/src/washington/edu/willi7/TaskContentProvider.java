@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.net.Uri;
 
 public class TaskContentProvider extends ContentProvider {
+	
+	public static final String AUTHORITY = "washington.edu.willi7.TaskContentProvider";
 
 	@Override
 	public int delete(Uri uri, String selection, String[] selectionArgs) {
